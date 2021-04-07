@@ -1,0 +1,20 @@
+syntax = "proto3";
+package grpcproto;
+
+message Coords {
+    double lat = 1;
+    double long = 2;
+}
+
+message HaversineRequest {
+    Coords firstCoords = 1;
+    Coords secondCoords = 2;
+}
+
+message HaversineResponse {
+    double distance = 1;
+}
+
+service Haversine {
+    rpc Calculate(HaversineRequest) returns (HaversineResponse){}
+}
